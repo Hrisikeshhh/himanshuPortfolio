@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 209, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 209, 255, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(164, 230, 255, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-container-highest": "#353534",
+                      "on-primary": "#003543",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-primary-fixed": "#001f28",
+                      "on-primary-container": "#00566a",
+                      "secondary": "#dab9ff",
+                      "surface-container": "#201f1f",
+                      "secondary-fixed": "#eedbff",
+                      "secondary-container": "#602b9d",
+                      "on-background": "#e5e2e1",
+                      "inverse-surface": "#e5e2e1",
+                      "inverse-primary": "#00677f",
+                      "primary": "#a4e6ff",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary": "#dedcdb",
+                      "primary-fixed-dim": "#4cd6ff",
+                      "surface-container-high": "#2a2a2a",
+                      "on-tertiary-container": "#4f4e4e",
+                      "on-secondary-container": "#cfa7ff",
+                      "on-secondary": "#460283",
+                      "on-tertiary": "#303030",
+                      "surface-dim": "#131313",
+                      "surface": "#131313",
+                      "primary-container": "#00d1ff",
+                      "primary-fixed": "#b7eaff",
+                      "secondary-fixed-dim": "#dab9ff",
+                      "on-secondary-fixed": "#2a0053",
+                      "error-container": "#93000a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#bbc9cf",
+                      "surface-variant": "#353534",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "background": "#131313",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-container": "#c2c0bf",
+                      "surface-bright": "#393939",
+                      "on-primary-fixed-variant": "#004e60",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#4cd6ff",
+                      "outline": "#859399",
+                      "on-tertiary-fixed": "#1b1b1c",
+                      "outline-variant": "#3c494e",
+                      "on-secondary-fixed-variant": "#5e289b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "container-max": "1440px",
+                      "unit": "8px",
+                      "section-gap": "128px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Montserrat"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Montserrat"],
+                      "label-caps": ["JetBrains Mono"],
+                      "display-lg": ["Montserrat"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Montserrat"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "900"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<h1 class="font-display-lg-mobile text-headline-md tracking-tighter text-primary">FILM_EDIT</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-primary hover:text-primary transition-colors duration-300" href="#">HOME</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">WORK</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">INFO</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">MAIL</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-white/10 overflow-hidden">
+<img alt="User Profile" data-alt="A professional close-up portrait of a creative editor in a moody, low-lit studio environment. The lighting is dramatic with cool blue rim light highlighting the silhouette against a dark, tech-filled background. The style is cinematic and high-end, mirroring a professional post-production suite atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xKEVas5OZ66rgy_bdAoYEqlqhI-E0gGzaIroqgCvJN12nM9LLmdua87Q9S6gHKIJfJsBhR4RWAB5fa2kASUpA4wMOKIrM5gmp1saurlCYuXzMEtsi7v1bgSz3PBb133qz9b_-DGEREAHp20BUblGDwIbfAbexVIQ9MTW2UbihtyAAtO2iLHvuZt4TwlElwxF8RV6VHk6IgxSzBKCKgGT5h3pynV4cq2wYs4Wjai9mxU9NmrFsiaJ99x--0b79nKDxwyyCtQqcpY"/>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<section class="mb-16">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter mb-4">SELECTED_WORKS</h2>
+<div class="flex flex-wrap gap-4 items-center">
+<span class="font-label-caps text-label-caps px-4 py-2 rounded-full border border-primary text-primary bg-primary/5">ALL PROJECTS</span>
+<span class="font-label-caps text-label-caps px-4 py-2 rounded-full border border-white/10 text-on-surface-variant hover:border-white/30 cursor-pointer transition-all">NARRATIVE</span>
+<span class="font-label-caps text-label-caps px-4 py-2 rounded-full border border-white/10 text-on-surface-variant hover:border-white/30 cursor-pointer transition-all">COMMERCIAL</span>
+<span class="font-label-caps text-label-caps px-4 py-2 rounded-full border border-white/10 text-on-surface-variant hover:border-white/30 cursor-pointer transition-all">MUSIC VIDEOS</span>
+</div>
+</section>
+<!-- Bento Portfolio Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Side Card 1 -->
+<div class="md:col-span-4 group relative aspect-[4/5] md:aspect-auto overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-tech commercial shot of a futuristic sleek workstation in a darkened room. Glowing blue LED accents trace the edges of hardware components, casting a soft electric blue light on the brushed metal surfaces. The aesthetic is ultra-modern, technical, and clean, emphasizing precision and high-performance design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_IFcZbxcxvDC5Q_W1KZGm-6l4DPHsV7Rzcm2ZloaVE6YtqTzmQG_5udTCQh9qhuv6jidabKlZKRdrEfdpIcxtI5AWa18hXFE7b9Tt130hS0lSahkf42ZoySLZfe-oOnawKF8oOZ0Kuj-i5Qdi-dLII6vMPDsTRu8-10W-ZmKwTYlQeNCoRKWG6cc-Rw4vjKScjogdRd_pEGCpSGZAKpGwnSL5Yu3R0612c6j3E6roJ3oS6Is3RcJAj3Qhmylxwm-k88mND4f66C8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.3)]">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">COMMERCIAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">TECH_REVEAL</h3>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A vibrant music video still featuring a neon-drenched urban street at night. Intense pink and purple lighting reflects off wet pavement, creating a dreamlike, synthwave aesthetic. A stylized performer is blurred in the background, keeping the focus on the atmospheric lighting and cinematic textures of the city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA81wjkP9n6v0Sx93QeHlJLe-KJ7fzhmhzoC6Sw3rkAHAQgxumwOBVQSLReZTv0DJuHyBktnGFlbgoMSDEh_ZlvOKB4F6PR5tVxEpi2b5xlkjMB-nVaGUECp62DYVtHpRPKYVWlDVc0kaBA-soLNJBXAmZSqnf8roSeqBILxiREyVMXHs6HlsnVDUT77sKcDi-gDCj06Q9NmV2t3uMxdIN6cLiNvBZ3KsKkC_R_xlIxOyMCgcNqRt1qxJ3-a-XXCfBjlUeMx-kySWo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">MUSIC VIDEO</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">NEON_DREAMS</h3>
+</div>
+</div>
+<!-- Small Card 3 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dramatic cinematic close-up of a high-end camera lens capturing a scene. The reflections in the glass elements show a blurred film set with bright studio lights. The mood is professional and technical, with deep blacks and sharp highlights that emphasize the precision of cinematography and post-production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpqA1e5ulm5-BLZXOzRQ8bTvvtytcwhr1j7d5EZNo31lbhpiHwwoBEman-rYB4XojUVZPBouwLx66845bH83nL3DC_DYxh7OlPNCw_eXVVzr_cR8F2X7F5PWG4j3M-pzobzhVlJH06Y7QW1_ZFcsVE2fKQ78cGi4Vx1pdvj-Xb427zWDBKs7GnPZJQQ14KhH9ckY13AY9cEbS6Nxja9bmyXMBp5NaGMWA-ihw2TcNqQv-ff3t346Is51f20AK3uurhCIj6Wun_oIc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">COMMERCIAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">CINE_GEAR</h3>
+</div>
+</div>
+<!-- Small Card 4 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A black and white high-contrast still from a noir-style narrative short film. A detective-like figure is partially obscured by shadows in a rainy alleyway, with strong backlighting creating a dramatic rim light effect. The texture is grainy and cinematic, echoing the classic era of film noir with a modern digital edge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8YSvKmgmckd12A_Ko6LoBOvZVIqKudaDWGD8HCPiTKlGZAideCE_YI7CJVzlubGc-e6DLZPBe4EZT853sqE5yA_V9SHU1KX3MhMajeY8nmDA2jjPvRntZH2EVVr4A21vnIU6NbN6GLwj9_Zn2KdCM8CVgeq90zI8-262J0cTs3sCdzi3KHbBbdi6r9YRx8D8FOBPwz7NlZ7I1xOoUE-lUCfJBo54kMlhxfJWN_c-xtZBQUv83MFYofrgA-_ygXPxqtDjJoX4QygA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">NARRATIVE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">MIDNIGHT_RUN</h3>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 group relative aspect-[4/5] md:aspect-auto overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-tech commercial shot of a futuristic sleek workstation in a darkened room. Glowing blue LED accents trace the edges of hardware components, casting a soft electric blue light on the brushed metal surfaces. The aesthetic is ultra-modern, technical, and clean, emphasizing precision and high-performance design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_IFcZbxcxvDC5Q_W1KZGm-6l4DPHsV7Rzcm2ZloaVE6YtqTzmQG_5udTCQh9qhuv6jidabKlZKRdrEfdpIcxtI5AWa18hXFE7b9Tt130hS0lSahkf42ZoySLZfe-oOnawKF8oOZ0Kuj-i5Qdi-dLII6vMPDsTRu8-10W-ZmKwTYlQeNCoRKWG6cc-Rw4vjKScjogdRd_pEGCpSGZAKpGwnSL5Yu3R0612c6j3E6roJ3oS6Is3RcJAj3Qhmylxwm-k88mND4f66C8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(0,209,255,0.3)]">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">COMMERCIAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">TECH_REVEAL</h3>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A vibrant music video still featuring a neon-drenched urban street at night. Intense pink and purple lighting reflects off wet pavement, creating a dreamlike, synthwave aesthetic. A stylized performer is blurred in the background, keeping the focus on the atmospheric lighting and cinematic textures of the city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA81wjkP9n6v0Sx93QeHlJLe-KJ7fzhmhzoC6Sw3rkAHAQgxumwOBVQSLReZTv0DJuHyBktnGFlbgoMSDEh_ZlvOKB4F6PR5tVxEpi2b5xlkjMB-nVaGUECp62DYVtHpRPKYVWlDVc0kaBA-soLNJBXAmZSqnf8roSeqBILxiREyVMXHs6HlsnVDUT77sKcDi-gDCj06Q9NmV2t3uMxdIN6cLiNvBZ3KsKkC_R_xlIxOyMCgcNqRt1qxJ3-a-XXCfBjlUeMx-kySWo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">MUSIC VIDEO</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">NEON_DREAMS</h3>
+</div>
+</div>
+<!-- Small Card 3 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dramatic cinematic close-up of a high-end camera lens capturing a scene. The reflections in the glass elements show a blurred film set with bright studio lights. The mood is professional and technical, with deep blacks and sharp highlights that emphasize the precision of cinematography and post-production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpqA1e5ulm5-BLZXOzRQ8bTvvtytcwhr1j7d5EZNo31lbhpiHwwoBEman-rYB4XojUVZPBouwLx66845bH83nL3DC_DYxh7OlPNCw_eXVVzr_cR8F2X7F5PWG4j3M-pzobzhVlJH06Y7QW1_ZFcsVE2fKQ78cGi4Vx1pdvj-Xb427zWDBKs7GnPZJQQ14KhH9ckY13AY9cEbS6Nxja9bmyXMBp5NaGMWA-ihw2TcNqQv-ff3t346Is51f20AK3uurhCIj6Wun_oIc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">COMMERCIAL</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">CINE_GEAR</h3>
+</div>
+</div>
+<!-- Small Card 4 -->
+<div class="md:col-span-4 group relative aspect-video overflow-hidden rounded-xl glass-card">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A black and white high-contrast still from a noir-style narrative short film. A detective-like figure is partially obscured by shadows in a rainy alleyway, with strong backlighting creating a dramatic rim light effect. The texture is grainy and cinematic, echoing the classic era of film noir with a modern digital edge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8YSvKmgmckd12A_Ko6LoBOvZVIqKudaDWGD8HCPiTKlGZAideCE_YI7CJVzlubGc-e6DLZPBe4EZT853sqE5yA_V9SHU1KX3MhMajeY8nmDA2jjPvRntZH2EVVr4A21vnIU6NbN6GLwj9_Zn2KdCM8CVgeq90zI8-262J0cTs3sCdzi3KHbBbdi6r9YRx8D8FOBPwz7NlZ7I1xOoUE-lUCfJBo54kMlhxfJWN_c-xtZBQUv83MFYofrgA-_ygXPxqtDjJoX4QygA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<span class="font-label-caps text-label-caps text-primary mb-1 block">NARRATIVE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">MIDNIGHT_RUN</h3>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-section-gap flex flex-col items-center">
+<button class="px-12 py-4 bg-primary text-on-primary font-label-caps text-label-caps rounded-sm hover:shadow-[0_0_20px_rgba(0,209,255,0.4)] transition-all active:scale-95">
+                LOAD_MORE_PROJECTS
+            </button>
+<div class="mt-8 flex gap-4 items-center">
+<div class="w-12 h-[2px] bg-primary"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">01 / 04 PAGES</span>
+<div class="w-12 h-[2px] bg-white/10"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-4 bg-surface-container/90 backdrop-blur-2xl border-t border-white/10">
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="movie_filter">movie_filter</span>
+<span class="font-label-caps text-[10px] mt-1">HOME</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-[10px] mt-1">WORK</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-label-caps text-[10px] mt-1">INFO</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-2xl" data-icon="send">send</span>
+<span class="font-label-caps text-[10px] mt-1">MAIL</span>
+</div>
+</nav>
+<!-- Floating Action Button (Contextual: Home/Gallery only) -->
+<button class="fixed right-6 bottom-24 md:right-12 md:bottom-12 w-16 h-16 rounded-full bg-primary-container text-on-primary shadow-2xl flex items-center justify-center group hover:scale-110 transition-transform duration-300 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="videocam">videocam</span>
+<div class="absolute right-full mr-4 px-4 py-2 bg-surface-container-high rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-white/10">
+<span class="font-label-caps text-label-caps text-primary">START_PROJECT</span>
+</div>
+</button>
+</body></html>

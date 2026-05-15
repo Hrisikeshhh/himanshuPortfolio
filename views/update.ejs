@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "primary-container": "#00d1ff",
+                    "outline": "#859399",
+                    "on-primary-fixed-variant": "#004e60",
+                    "on-tertiary-fixed": "#1b1b1c",
+                    "on-tertiary-container": "#4f4e4e",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "primary-fixed-dim": "#4cd6ff",
+                    "on-secondary": "#460283",
+                    "on-tertiary": "#303030",
+                    "tertiary": "#dedcdb",
+                    "on-surface-variant": "#bbc9cf",
+                    "on-primary-container": "#00566a",
+                    "on-secondary-fixed-variant": "#5e289b",
+                    "on-secondary-fixed": "#2a0053",
+                    "primary": "#a4e6ff",
+                    "on-primary-fixed": "#001f28",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed": "#eedbff",
+                    "inverse-primary": "#00677f",
+                    "surface-tint": "#4cd6ff",
+                    "secondary-fixed-dim": "#dab9ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-container": "#602b9d",
+                    "on-secondary-container": "#cfa7ff",
+                    "surface-container-low": "#1c1b1b",
+                    "surface": "#131313",
+                    "on-error": "#690005",
+                    "on-primary": "#003543",
+                    "background": "#131313",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#353534",
+                    "surface-bright": "#393939",
+                    "outline-variant": "#3c494e",
+                    "secondary": "#dab9ff",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-container": "#201f1f",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#b7eaff",
+                    "tertiary-container": "#c2c0bf",
+                    "surface-container-highest": "#353534",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed-variant": "#474746"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "section-gap": "128px",
+                    "unit": "8px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Montserrat"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "900"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .primary-glow-hover:hover {
+            box-shadow: 0 0 15px rgba(0, 209, 255, 0.4);
+            border-color: #00d1ff;
+        }
+        .seek-bar {
+            height: 2px;
+            background: #353534;
+        }
+        .seek-bar-progress {
+            height: 2px;
+            background: #00d1ff;
+            width: 35%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg-mobile text-headline-md tracking-tighter text-primary">FILM_EDIT</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-primary" href="#">WORK</a>
+<a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">INFO</a>
+<a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">MAIL</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-white/10 overflow-hidden">
+<img alt="User" data-alt="A close-up professional headshot of a creative film editor with sharp features, set against a dark, moody studio background. The lighting is low-key with subtle blue rim lighting on the shoulders, creating a cinematic and high-tech professional atmosphere consistent with a luxury post-production suite aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRsVJyDrWETFWW8iELOxBqSOmgAqBp-xvFh9mjcM0aGNi5TuUyjaW1G7F2pjFvlXCfQVvMPP9aXXAZuRUmIBQKaiHD_1RxrDT3kmVuzMYfCX_WsFy2bJFCmUaqr57VKIEUp3jnh9q8Kou9f1e3pEAMHqWhB4QthQQjEua2DL4bZr2AcvKmN7LYSlvbUCtX5L3h9yJag7IXMpI-ecJ8xc6QFTtTbTLag4qEtZ0lWLK7vmXyDKWsoPdWt6eS3VKl5XX-EVtwz1ENhs"/>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<span class="font-label-caps text-primary-container mb-2 block">PROJECT EDITOR</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">UPLOAD REEL.</h2>
+</div>
+<div class="flex gap-4">
+<button class="bg-transparent border border-white/20 px-8 py-3 font-label-caps hover:bg-white/5 transition-all">DISCARD</button>
+<button class="bg-primary-container text-on-primary-container px-10 py-3 font-label-caps font-bold transition-all primary-glow-hover">PUBLISH</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Form & Main Video -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Form Side -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-panel p-8 rounded-lg flex flex-col gap-6">
+<div class="group">
+<label class="font-label-caps text-on-surface-variant mb-2 block text-[10px]">CLIENT NAME</label>
+<input class="w-full bg-surface-container-low border-0 border-b border-white/10 focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-white/10 py-3 px-0 font-headline-md text-xl transition-all" placeholder="e.g. A24 FILMS" type="text"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-on-surface-variant mb-2 block text-[10px]">REEL NAME</label>
+<input class="w-full bg-surface-container-low border-0 border-b border-white/10 focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-white/10 py-3 px-0 font-headline-md text-xl transition-all" placeholder="SUMMER NARRATIVE 2024" type="text"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-on-surface-variant mb-2 block text-[10px]">PROJECT CAPTION</label>
+<textarea class="w-full bg-surface-container-low border-0 border-b border-white/10 focus:border-primary-container focus:ring-0 text-on-surface placeholder:text-white/10 py-3 px-0 font-body-md transition-all resize-none" placeholder="Describe the creative direction..." rows="3"></textarea>
+</div>
+<div class="group">
+<label class="font-label-caps text-on-surface-variant mb-2 block text-[10px]">SOFTWARE USED</label>
+<div class="flex flex-wrap gap-2 pt-2 mb-4">
+<span class="border border-primary-container/30 text-primary-container font-label-caps px-3 py-1 rounded-full text-[10px] bg-primary-container/5">DAVINCI RESOLVE</span>
+<span class="border border-white/10 text-on-surface-variant font-label-caps px-3 py-1 rounded-full text-[10px] hover:border-primary-container transition-colors cursor-pointer">PREMIERE PRO</span>
+<span class="border border-white/10 text-on-surface-variant font-label-caps px-3 py-1 rounded-full text-[10px] hover:border-primary-container transition-colors cursor-pointer">AFTER EFFECTS</span>
+</div>
+<div class="flex items-center gap-0 border-b border-white/10 focus-within:border-primary-container transition-all">
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-white/10 py-2 px-0 font-label-caps text-[10px]" placeholder="ADD NEW SOFTWARE..." type="text"/>
+<button class="flex items-center justify-center p-2 text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Video Dashboard -->
+<div class="lg:col-span-8">
+<div class="glass-panel h-full rounded-lg relative overflow-hidden flex flex-col">
+<div class="relative aspect-video w-full group cursor-pointer">
+<img alt="Video Preview" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic wide-angle shot of a film editor's workstation in a darkened room. On the large high-resolution monitor, a vibrant cinematic scene is being edited. The ambient light is dominated by neon electric blue and deep charcoal shadows, creating a high-end technical feel. Professional audio gear and a control surface are visible in the foreground, blurred with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2efKj8o05zl9SMhL8AsXKeoHKjN1UEycv1e-04KuX8bpJwmIVRPQXk56L5hQpj_4hgSREEQtO2bzb3Z3fJ4SsmIsNn-1KJVZhTBC-_dcCKma6iL51kECYVkDlqU2hwulHAPB6o66wMGuYwROcQHAHckrYmpdl60aJpuJuKP_K1NVvM5mKBw8-8JdKq1L_NhuZfJ7W92sC_arUS1hhtFzvc7ywdTigdgGJnar78ErdKz6tcOJWSuGjiPMtazBi7EBoNSzEnMxWvr0"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full border border-primary-container/50 bg-primary-container/10 flex items-center justify-center group-hover:scale-110 transition-all backdrop-blur-md">
+<span class="material-symbols-outlined text-primary-container text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+<div class="seek-bar w-full mb-4">
+<div class="seek-bar-progress relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary-container rounded-full shadow-[0_0_10px_#00d1ff]"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">skip_previous</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">pause</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">skip_next</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant tracking-widest">04:12 / 12:45</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex justify-between items-center bg-surface-container-low/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">movie_filter</span>
+<span class="font-label-caps text-on-surface text-xs">SUMMER_REEL_FINAL_4K.MP4</span>
+</div>
+<button class="font-label-caps text-primary-container text-[10px] flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">cloud_upload</span> REPLACE VIDEO
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparison Section -->
+<section class="mt-section-gap">
+<div class="flex items-center gap-4 mb-12">
+<div class="h-px bg-primary-container/30 flex-grow"></div>
+<h3 class="font-headline-md text-headline-md tracking-tight">PROCESS COMPARISON</h3>
+<div class="h-px bg-primary-container/30 flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Raw Footage -->
+<div class="group">
+<div class="glass-panel aspect-video rounded-lg overflow-hidden relative mb-6">
+<img alt="Raw Footage" class="w-full h-full object-cover grayscale opacity-50 contrast-75" data-alt="Raw cinema camera footage showing a desaturated, flat logarithmic profile image of a misty mountain landscape. The colors are muted and gray, representing unedited video data before any color correction or grading. The image is framed within a professional video editing software window interface, consistent with high-end cinematic post-production workflows in a dark studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlVy--y0qGr0Ug0Vprd-oS6ph2dRwQP2Xg04yltq-qlelvQJtR9jImXa6hp3ngbNcbnH1rJ3pmnYuNrAD1Z34rLM23tyYZO74qYFXPqEHn9RsX_JUqHy0xZ_81iwQ_a84ov8KDEhYGkUTBd03DhYt2GG7SoiOX4jTcusFX3H75k_lRquwTChfDJVq85hFl5xAbtNjAPkyFEJRgbTnU2WEWFJljTTODIeIpguZMYKwn5V_D1de1_Xr5a9FU_hxx6eSiIKLLrkI0GKA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/30 text-6xl">cloud_upload</span>
+</div>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-4 py-1 rounded">
+<span class="font-label-caps text-[10px] text-on-surface">RAW FOOTAGE</span>
+</div>
+</div>
+<h4 class="font-label-caps text-on-surface-variant mb-2">SOURCE LOG FILE</h4>
+<p class="text-sm text-on-surface-variant/60 leading-relaxed max-w-sm">Upload the original flat profile file to demonstrate your initial color correcting starting point.</p>
+</div>
+<!-- Final Grade -->
+<div class="group">
+<div class="glass-panel aspect-video rounded-lg overflow-hidden relative mb-6 border-primary-container/20 border-2">
+<img alt="Final Grade" class="w-full h-full object-cover" data-alt="A vibrant, professional color-graded scene of a mountain landscape at sunset. The lighting is dramatic with deep golden oranges and cool teal shadows. The image has high contrast, sharp detail, and rich saturation, showcasing a finished, high-end cinematic aesthetic typical of luxury film production and professional color grading suites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDxvOINufw5IZ8z3xuUtrbfL_lXM4Jh600QARUuMMbyOMQwJdNmG3yaUmU9KF_pZqach_ouU3QL4-mEgCN5cTVBnWlbSu4n3z9b-EivJyyJJAo-WQdNjlgOwYigwFNV4SheNBRg4hsO1T7DgeOPefBaUnBHbBEwIbp4LB-QOGb95gml0f9YID2nHgcQr25ngldsxjomL-esVd96DVkz6DJ04GI9zHI85zptnX1z1FQJIrGAcSlf36RXPFdu9qBuOoRUDXeDEz-Dok"/>
+<div class="absolute inset-0 bg-primary-container/5 mix-blend-overlay"></div>
+<div class="absolute top-4 left-4 bg-primary-container px-4 py-1 rounded shadow-[0_0_15px_rgba(0,209,255,0.5)]">
+<span class="font-label-caps text-[10px] text-black font-bold">FINAL GRADE</span>
+</div>
+</div>
+<h4 class="font-label-caps text-primary mb-2">FINISHED MASTER</h4>
+<p class="text-sm text-on-surface-variant/60 leading-relaxed max-w-sm">The polished output. Showcase your color science, noise reduction, and final aesthetic vision.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container/90 backdrop-blur-2xl border-t border-white/10 flex justify-around items-center h-20 pb-4">
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="font-label-caps text-[10px] mt-1">HOME</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-[10px] mt-1">WORK</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">INFO</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">send</span>
+<span class="font-label-caps text-[10px] mt-1">MAIL</span>
+</div>
+</nav>
+<!-- FAB for mobile project save -->
+<div class="md:hidden fixed bottom-24 right-6 z-40">
+<button class="bg-primary-container text-on-primary-container w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">save</span>
+</button>
+</div>
+</body></html>

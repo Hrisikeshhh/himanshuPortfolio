@@ -1,7 +1,18 @@
 const express = require('express');
 const router = express.Router();
+
 router.get('/',(req,res)=>{
-  res.send("projects stuffs")
+  try{
+  res.render("portfolio")
+  }catch(err){
+    res.status(500).send('server error');
+  }
+  
 })
+
+
+
+
+
 
 module.exports = router;
