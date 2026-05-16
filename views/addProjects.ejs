@@ -145,7 +145,7 @@
 </header>
 <main class="pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <!-- Header Section -->
- <form action="/authorised/addNew" method="post">
+ <form action="/authorised/addNew" method="post" enctype="multipart/form-data">
 <section class="mb-16">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
 <div>
@@ -245,6 +245,7 @@
 </div>
 <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-4 py-1 rounded">
 <span class="font-label-caps text-[10px] text-on-surface">RAW FOOTAGE</span>
+<input type="file" name="rawVideo"> 
 </div>
 </div>
 <h4 class="font-label-caps text-on-surface-variant mb-2">SOURCE LOG FILE</h4>
@@ -257,6 +258,7 @@
 <div class="absolute inset-0 bg-primary-container/5 mix-blend-overlay"></div>
 <div class="absolute top-4 left-4 bg-primary-container px-4 py-1 rounded shadow-[0_0_15px_rgba(0,209,255,0.5)]">
 <span class="font-label-caps text-[10px] text-black font-bold">FINAL GRADE</span>
+<input type="file" name="mainVideo">
 </div>
 </div>
 <h4 class="font-label-caps text-primary mb-2">FINISHED MASTER</h4>
